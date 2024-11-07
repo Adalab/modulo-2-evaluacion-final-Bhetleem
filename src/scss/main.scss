@@ -3,3 +3,9 @@
 @import 'components/code';
 @import 'components/links';
 
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
