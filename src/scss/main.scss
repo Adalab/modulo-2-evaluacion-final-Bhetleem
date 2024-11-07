@@ -2,10 +2,5 @@
 @import 'core/reset';
 @import 'components/code';
 @import 'components/links';
+@import 'layout/anime';
 
-.container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-}
