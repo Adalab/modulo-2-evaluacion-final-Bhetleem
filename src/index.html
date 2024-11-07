@@ -4,7 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Document</title>
+    <link rel="stylesheet" href="./scss/main.scss" />
   </head>
 
-  <body></body>
+  <body>
+    <header>
+      <h1>Buscador de Series de Anime</h1>
+    </header>
+    <main>
+      <form action="">
+        <input class="js-input"
+          type="text"
+          name="search"
+          placeholder="Escribe tu serie favorita"
+        />
+        <button class="js-searchButton">Buscar</button>
+        <button>Reset</button>
+      </form>
+      <section>
+        <h3>Resultados</h3>
+        <ul class="js-searchList"></ul>
+      </section>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
