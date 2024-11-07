@@ -4,33 +4,37 @@
     justify-content: space-between;
     
     &_results{
-        width: 50vw;
+        width: 60vw;
         display: flex;
         flex-direction: column;
+        border: solid 3px darksalmon;
+        border-radius: 5px;
+        margin: 2%;
         &_title{
-            margin: 2%;
-            background-color: rgba($color: #bcf3ea, $alpha: 0.5);
+            background-color: darksalmon;
+            text-align: center;
            }
         &_list{
             display: flex;
             flex-direction: column;
             margin: 5%;
-            background-color: rgba($color: #e7bcf3, $alpha: 0.5);
            }
     }
     &_favourites{
-        width: 50vw;
+        width: 40vw;
         display: flex;
         flex-direction: column;
+        border: solid 3px whitesmoke;
+        border-radius: 5px;
+        margin: 2%;
         &_title{
-            margin: 2%;
-            background-color: rgba($color: #bcf3ea, $alpha: 0.5);
+            background-color: whitesmoke;
+            text-align: center;
            }
         &_list{
             display: flex;
             flex-direction: column;
             margin: 5%;
-            background-color: rgba($color: #e7bcf3, $alpha: 0.5);
            }
     }
 }
@@ -44,8 +48,9 @@
 }
 header{
     padding: 5%;
-    background-color: antiquewhite;
     width: 100vw;
+    background-color: black;
+    color: rgb(12, 183, 183);
 }
 
 form{
@@ -53,12 +58,11 @@ form{
     padding: 2%;
     justify-content: center;
     gap: 2%;
-    background-color: #e7bcf3;
 }
 
 button{
     color: white;
-    background-color: cadetblue;
+    background-color: rgb(12, 183, 183);
     padding: 1%;
     border-radius: 20px;
 }
@@ -66,4 +70,10 @@ button{
 input{
     background-color: lavender;
     padding: 1%;
+    border: solid 3px rgb(12, 183, 183);
+    border-radius: 5px;
+}
+main{
+    background-color: black;
+    height: 100vh;
 }
