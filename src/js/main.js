@@ -9,11 +9,6 @@ let favouriteList = document.querySelector(".js-favouritesList");
 const resetButton = document.querySelector(".js-resetButton");
 
 let seriesList = [];
-const savedFavouritesAtLS = JSON.parse(localStorage.getItem("favouritesLocalStorage"));
-/* La condicion para guardar el nuevo favorito clicado por la usuaria + lo que haya en el local storage sera
-    Si {savedFavouritesAtLS es distinto de null => le asigno a la variable savedFavourites el valor de AtLS}
-    si no (es decir, si es nulo) entonces inicio el objeto vacío (el array []) */
-let savedFavourites = savedFavouritesAtLS !== null?savedFavouritesAtLS:[]
 
 /* Busqueda de series */
 
@@ -40,22 +35,27 @@ function handleSearch(ev) {
         }
 
         searchList.innerHTML += `
-            <li class="js-li serieCard" id=${serie.mal_id}>
+            <li class="js-li favourite serieCard" id=${serie.mal_id}>
             <img class="js-image" src="${imageURL}" alt="${serie.title}">
             <h5 class="js-serieTitle">${serie.title}</h5>
             </li>
             `;
         seriesList.push(serie);
+       
 
         const allSeriesDOM = document.querySelectorAll(".js-li");
         for (const serieDOM of allSeriesDOM) {
           serieDOM.addEventListener("click", handleAddFavourite);
+          
         }
       }
     });
 }
 
 searchButton.addEventListener("click", handleSearch);
+
+const favouriteStyle = document.querySelectorAll(".favourite");
+
 
 /* Añadir a favoritos */
 
@@ -65,6 +65,11 @@ function handleAddFavourite(event) {
   const favouriteCardSelected = seriesList.find((serie) => {
     return serie.mal_id === parseInt(idCardFavouriteSelected);
   });
+  console.log(event.currentTarget);
+  
+  event.currentTarget.classList.toggle("selectedcard");
+  event.currentTarget.classList.toggle("serieCard");
+
   savedFavourites.push(favouriteCardSelected);
   //console.log(favouriteSerieList);
   favouriteList.innerHTML += `
@@ -73,9 +78,14 @@ function handleAddFavourite(event) {
         <h5 class="js-fav-serieTitle">${favouriteCardSelected.title}</h5>
         </li>
         `;
-
 localStorage.setItem("favouritesLocalStorage", JSON.stringify(savedFavourites));
 } 
+
+let savedFavouritesAtLS = JSON.parse(localStorage.getItem("favouritesLocalStorage"));
+/* La condicion para guardar el nuevo favorito clicado por la usuaria + lo que haya en el local storage sera
+    Si {savedFavouritesAtLS es distinto de null => le asigno a la variable savedFavourites el valor de AtLS}
+    si no (es decir, si es nulo) entonces inicio el objeto vacío (el array []) */
+let savedFavourites = savedFavouritesAtLS !== null?savedFavouritesAtLS:[]
 
 /* --- Pintar desde localStorage --- */
 if (savedFavourites !== null) {
@@ -94,6 +104,7 @@ if (savedFavourites !== null) {
 
 function resetClick() {
   seriesList = [];
-  favouriteSerieList = [];
+  savedFavourites = [];
+  localStorage.clear();
 }
 resetButton.addEventListener("click", resetClick);
