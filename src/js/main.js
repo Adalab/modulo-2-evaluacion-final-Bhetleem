@@ -70,10 +70,13 @@ function handleAddFavourite(event) {
   event.currentTarget.classList.toggle("selectedcard");
   event.currentTarget.classList.toggle("serieCard");
 
+  const closeButton = document.querySelector(".js-closeButton");
+
   savedFavourites.push(favouriteCardSelected);
   //console.log(favouriteSerieList);
   favouriteList.innerHTML += `
         <li class="serieCard">
+        <button class="close js-closeButton">X</button>
         <img class="js-fav-image" src="${favouriteCardSelected.images.jpg.image_url}" alt="${favouriteCardSelected.title}">
         <h5 class="js-fav-serieTitle">${favouriteCardSelected.title}</h5>
         </li>
@@ -93,12 +96,16 @@ if (savedFavourites !== null) {
     console.log(favourite);
     favouriteList.innerHTML += `
         <li class="serieCard">
+        <button class="close js-closeButton">X</button>
         <img class="js-fav-image" src="${favourite.images.jpg.image_url}" alt="${favourite.title}">
         <h5 class="js-fav-serieTitle">${favourite.title}</h5>
         </li>
         `;
   }
 }
+
+
+
 
 /* --- Reset ---*/
 
